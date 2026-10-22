@@ -24,6 +24,10 @@ describe('buildNote', () => {
   it('defaults a missing body to an empty string', () => {
     expect(buildNote({ title: 'no body' }).body).toBe('');
   });
+
+  it('trims surrounding whitespace from the body', () => {
+    expect(buildNote({ title: 'Docker', body: '  hello world  ' }).body).toBe('hello world');
+  });
 });
 
 describe('sortNotes', () => {
